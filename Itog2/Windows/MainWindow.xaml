@@ -1,0 +1,41 @@
+﻿<Window x:Class="Itog2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Itog2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0">
+            <MenuItem Header="Учёт">
+                <MenuItem Header="Управление">
+                    <MenuItem Header="Книги" Click="MenuItemBooks_Click"/>
+                    <MenuItem Header="Авторы" Click="MenuItemAuthors_Click"/>
+                    <MenuItem Header="Жанры" Click="MenuItemGenres_Click"/>
+                    <MenuItem Header="Издательства" Click="MenuItemPublishers_Click"/>
+                    <MenuItem Header="Сотрудники" Click="MenuItemEmployees_Click"/>
+                    <MenuItem Header="Читатели" Click="MenuItemReaders_Click"/>
+                    <MenuItem Header="Журнал" Click="MenuItemJournal_Click"/>
+                </MenuItem>
+                <MenuItem Header="Выдача" Click="MenuItemIssue_Click">
+
+                </MenuItem>
+                <MenuItem Header="Возврат" Click="MenuItemReturn_Click">
+
+                </MenuItem>
+
+            </MenuItem>
+            <MenuItem Header="Отчёты">
+                <MenuItem Header="Популярные книги" Click="MenuItemPopularBooksReport_Click"/>
+                <MenuItem Header="Рейтинг сотрудников" Click="MenuItemEmployeeRatingReport_Click"/>
+            </MenuItem>
+        </Menu>
+        <Frame Grid.Row="1" Name="frame" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

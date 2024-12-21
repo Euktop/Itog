@@ -70,5 +70,63 @@ namespace Itog.Windows.Pages
         {
             DataGrid_.ItemsSource = _repository.GetAll();
         }
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (typeof(T) == typeof(Book))
+            {
+                var window = new BookEditWindow(_repository as BookRepository);
+                if (window.ShowDialog() == true)
+                {
+                    LoadData();
+                }
+            }
+            else if (typeof(T) == typeof(Author))
+            {
+                var window = new AuthorEditWindow(_repository as AuthorRepository);
+                if (window.ShowDialog() == true)
+                {
+                    LoadData();
+                }
+            }
+            else if (typeof(T) == typeof(Genre))
+            {
+                var window = new GenreEditWindow(_repository as GenreRepository);
+                if (window.ShowDialog() == true)
+                {
+                    LoadData();
+                }
+            }
+            else if (typeof(T) == typeof(Publisher))
+            {
+                var window = new PublisherEditWindow(_repository as PublisherRepository);
+                if (window.ShowDialog() == true)
+                {
+                    LoadData();
+                }
+            }
+            else if (typeof(T) == typeof(Employee))
+            {
+                var window = new EmployeeEditWindow(_repository as EmployeeRepository);
+                if (window.ShowDialog() == true)
+                {
+                    LoadData();
+                }
+            }
+            else if (typeof(T) == typeof(Reader))
+            {
+                var window = new ReaderEditWindow(_repository as ReaderRepository);
+                if (window.ShowDialog() == true)
+                {
+                    LoadData();
+                }
+            }
+            else
+            {
+                // Для других сущностей реализация добавления по умолчанию
+
+            }
+
+        }
     }
 }

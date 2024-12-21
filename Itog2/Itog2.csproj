@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2615C274-6D65-4459-96A0-8847800B55AA}</ProjectGuid>
+    <ProjectGuid>{6E399C44-3839-42E8-B73F-4A3703DEED96}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Itog</RootNamespace>
-    <AssemblyName>Itog</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>Itog2</RootNamespace>
+    <AssemblyName>Itog2</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -24,7 +24,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,9 +33,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>Itog.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -59,32 +55,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Class\AbstractRepository.cs" />
-    <Compile Include="Class\DataManager.cs" />
-    <Compile Include="Class\Entity.cs" />
-    <Compile Include="Windows\Edit1.xaml.cs">
-      <DependentUpon>Edit1.xaml</DependentUpon>
+    <Compile Include="Windows\EditEntityWindow.xaml.cs">
+      <DependentUpon>EditEntityWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Edit3.xaml.cs">
-      <DependentUpon>Edit3.xaml</DependentUpon>
+    <Compile Include="Windows\IssueReturnWindow.xaml.cs">
+      <DependentUpon>IssueReturnWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Pages\Accounting.xaml.cs">
-      <DependentUpon>Accounting.xaml</DependentUpon>
+    <Compile Include="Windows\Pages\AuthorPage.xaml.cs" />
+    <Compile Include="Windows\Pages\BaseEntityPage.xaml.cs">
+      <DependentUpon>BaseEntityPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Pages\AuthorEditWindow.cs" />
-    <Compile Include="Windows\Pages\BookEditWindow.cs" />
-    <Compile Include="Windows\Pages\EmployeeEditWindow.cs" />
-    <Compile Include="Windows\Pages\GenreEditWindow.cs" />
-    <Compile Include="Windows\Pages\PublisherEditWindow.cs" />
-    <Compile Include="Windows\Pages\ReaderEditWindow.cs" />
-    <Compile Include="Windows\Pages\Report.xaml.cs">
-      <DependentUpon>Report.xaml</DependentUpon>
+    <Compile Include="Windows\Pages\BookPage.xaml.cs" />
+    <Compile Include="Windows\Pages\EmployeePage.xaml.cs" />
+    <Compile Include="Windows\Pages\GenrePage.xaml.cs" />
+    <Compile Include="Windows\Pages\JournalPage.xaml.cs">
+      <DependentUpon>JournalPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="Windows\Edit1.xaml">
+    <Compile Include="Windows\Pages\PublisherPage.xaml.cs" />
+    <Compile Include="Windows\Pages\ReaderPage.xaml.cs" />
+    <Compile Include="Windows\ReportWindow.xaml.cs">
+      <DependentUpon>ReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Windows\EditEntityWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Edit3.xaml">
+    <Page Include="Windows\IssueReturnWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -96,16 +92,28 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Class\DataManager_1.cs" />
+    <Compile Include="Classes\DataManager.cs" />
+    <Compile Include="Classes\Entity\Author.cs" />
+    <Compile Include="Classes\Entity\BaseEntity.cs" />
+    <Compile Include="Classes\Entity\Book.cs" />
+    <Compile Include="Classes\Entity\Employee.cs" />
+    <Compile Include="Classes\Entity\Genre.cs" />
+    <Compile Include="Classes\Entity\JournalEntry.cs" />
+    <Compile Include="Classes\Entity\Publisher.cs" />
+    <Compile Include="Classes\Entity\Reader.cs" />
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Windows\Pages\Accounting.xaml">
+    <Page Include="Windows\Pages\BaseEntityPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Pages\Report.xaml">
+    <Page Include="Windows\Pages\JournalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ReportWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,7 +146,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="Resources\books.txt" />
+    <Resource Include="Resources\Books.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
